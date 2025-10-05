@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Testimonials Section</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* ========================================
+        CUSTOM STYLES FOR INTERACTIVITY & GLASSMORHPISM
+        ======================================== */
+        
+        /* Base background for a good Glassmorphism effect */
+        .glass-bg-primary {
+            background: linear-gradient(135deg, #2c3e50, #2c3e50, #1f2937); 
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Animated background circles for visual depth */
+        .animated-circles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Styles for the individual moving circles */
+        .animated-circles div {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(100, 116, 139, 0.4); /* Slate color */
+            animation: animate 25s linear infinite;
+            bottom: -200px;
+            border-radius: 50%;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Defining sizes and starting positions for the circles */
+        .animated-circles div:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+        .animated-circles div:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .animated-circles div:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+        .animated-circles div:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+        .animated-circles div:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+        .animated-circles div:nth-child(6) { left: 85%; width: 150px; height: 150px; animation-delay: 3s; animation-duration: 11s; }
+
+        /* Keyframe animation for movement and fading */
+        @keyframes animate {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
+        }
+
+        /* Glass Card Styling */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            /* Interaction: 3D hover lift */
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            cursor: default; /* Not a click target */
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px); /* Slightly less aggressive lift */
+            box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.45);
+        }
+        
+        .star-rating {
+            color: #34d399; /* Emerald color for stars */
+            display: flex;
+            gap: 2px;
+        }
+
+    </style>
+</head>
+<body class="glass-bg-primary font-sans p-4 md:p-8">
+    
+    <!-- Animated background element -->
+    <div class="animated-circles">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+    <!-- Main Content Wrapper -->
+    <div id="testimonials-content-wrapper" class="py-16">
+        <div class="w-full max-w-7xl mx-auto">
+            
+            <h2 class="text-4xl font-extrabold text-white mb-12 text-center drop-shadow-lg">
+                Trusted by <span class="text-emerald-400">Industry Leaders</span>
+            </h2>
+
+            <!-- Testimonials Grid Container -->
+            <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10">
+
+                <!-- TESTIMONIAL 1 -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <!-- 5 Star Rating -->
+                        <div class="star-rating mb-4">
+                            <!-- Star SVG (repeated 5 times) -->
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                        </div>
+
+                        <!-- Quote Icon -->
+                        <svg class="w-12 h-12 text-emerald-400/50 mb-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 10C4.343 10 3 8.657 3 7s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zm12 0c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zM6 20C4.343 20 3 18.657 3 17s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zm12 0c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"></path></svg>
+                        
+                        <!-- Quote Content -->
+                        <p class="text-white text-lg italic mb-6">
+                            "The attention to detail on the data visualization dashboard was exceptional. The project was delivered ahead of schedule and significantly improved our user engagement metrics."
+                        </p>
+                    </div>
+
+                    <!-- Reviewer Info -->
+                    <div class="flex items-center pt-4 border-t border-gray-700/50">
+                        <div class="w-12 h-12 rounded-full bg-sky-400 flex items-center justify-center text-xl font-bold text-gray-900 mr-4">AJ</div>
+                        <div>
+                            <p class="text-white font-semibold">Alex Johnson</p>
+                            <p class="text-gray-400 text-sm">Lead PM, Innovatech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TESTIMONIAL 2 -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <!-- 5 Star Rating -->
+                        <div class="star-rating mb-4">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                            <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                        </div>
+
+                        <!-- Quote Icon -->
+                        <svg class="w-12 h-12 text-emerald-400/50 mb-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 10C4.343 10 3 8.657 3 7s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zm12 0c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zM6 20C4.343 20 3 18.657 3 17s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zm12 0c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"></path></svg>
+                        
+                        <!-- Quote Content -->
+                        <p class="text-white text-lg italic mb-6">
+                            "Absolutely fantastic communication throughout the entire API integration project. Their backend expertise saved us weeks of development time."
+                        </p>
+                    </div>
+
+                    <!-- Reviewer Info -->
+                    <div class="flex items-center pt-4 border-t border-gray-700/50">
+                        <div class="w-12 h-12 rounded-full bg-red-400 flex items-center justify-center text-xl font-bold text-gray-900 mr-4">SK</div>
+                        <div>
+                            <p class="text-white font-semibold">Sarah Kim</p>
+                            <p class="text-gray-400 text-sm">CTO, DataVerse Corp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TESTIMONIAL 3 -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <!-- 5 Star Rating -->
+                        <div class="star-rating mb-4">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.62-.921 1.92 0l2.316 7.126h7.491c.969 0 1.371 1.24.588 1.81l-6.07 4.417 2.316 7.126c.3.921-.755 1.688-1.547 1.118l-6.07-4.417-6.07 4.417c-.792.57-1.847-.197-1.547-1.118l2.316-7.126-6.07-4.417c-.783-.57-.381-1.81.588-1.81h7.491l2.316-7.126z"></path></svg>
+                        </div>
+
+                        <!-- Quote Icon -->
+                        <svg class="w-12 h-12 text-emerald-400/50 mb-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 10C4.343 10 3 8.657 3 7s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zm12 0c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zM6 20C4.343 20 3 18.657 3 17s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3zm12 0c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"></path></svg>
+                        
+                        <!-- Quote Content -->
+                        <p class="text-white text-lg italic mb-6">
+                            "The interactive game prototype was flawless and beautifully executed on the front end. Their creativity combined with clean code is a rare and valuable find."
+                        </p>
+                    </div>
+
+                    <!-- Reviewer Info -->
+                    <div class="flex items-center pt-4 border-t border-gray-700/50">
+                        <div class="w-12 h-12 rounded-full bg-indigo-400 flex items-center justify-center text-xl font-bold text-gray-900 mr-4">MT</div>
+                        <div>
+                            <p class="text-white font-semibold">Maria Torres</p>
+                            <p class="text-gray-400 text-sm">Design Lead, Creative Studio X</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            
+            <p class="text-center text-gray-400 mt-12 text-sm">Want to leave a testimonial? <a href="#" class="text-sky-400 hover:text-sky-300 font-medium underline">Contact me here.</a></p>
+
+        </div>
+    </div>
+
+</body>
+</html>
